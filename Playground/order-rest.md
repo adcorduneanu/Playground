@@ -14,4 +14,4 @@
 Implement the `WebApi` endpoints based on the provided information; that will include, controller, methods, naming convetions, routing, etc.
 
 ## Time limit
-2 minutes
+3-4 minutes
