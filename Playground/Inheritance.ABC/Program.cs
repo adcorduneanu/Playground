@@ -7,10 +7,10 @@
     {
         static void Main()
         {
-            //DoSomethingWith(new A());
-            //DoSomethingWith(new B());     
-            //DoSomethingWith(new C());     
-            //DoSomethingWith(new D());
+            DoSomethingWith(new A());
+            DoSomethingWith(new B());     
+            DoSomethingWith(new C());     
+            DoSomethingWith(new D());
         }
 
         static void DoSomethingWith(B myType)
@@ -28,12 +28,12 @@
             public readonly DateTime CreationDate = DateTime.Now;
         }
 
-        internal class C : B
+        internal sealed class C : B
         {
             public Guid Guid { get; } = Guid.NewGuid();
         }
 
-        internal sealed class D : C
+        internal class D : C
         {
             public string Name => nameof(D);
         }
