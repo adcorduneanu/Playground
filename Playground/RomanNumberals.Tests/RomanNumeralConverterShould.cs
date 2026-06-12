@@ -1,13 +1,13 @@
 ﻿namespace RomanNumberals.Tests
 {
-    using NUnit.Framework;
+    using Shouldly;
+    using Xunit;
 
     public class RomanNumeralConverterShould
     {
-        private RomanNumeralConverter romanNumberalConverter;
-        
-        [SetUp]
-        public void Initialize()
+        private readonly RomanNumeralConverter romanNumberalConverter;
+
+        public RomanNumeralConverterShould()
         {
             romanNumberalConverter = new RomanNumeralConverter();
         }

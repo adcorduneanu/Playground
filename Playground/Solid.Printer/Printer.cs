@@ -7,7 +7,7 @@
     using System.Net.Mail;
    
 
-    public class Printer : IPrinter
+    public sealed class Printer : IPrinter
     {
         private readonly Configuration configuration;
 
@@ -56,9 +56,8 @@
             else if (notificationType == NotificationType.Sms)
             {
                 var client = new RestClient("https://api.melroselabs.com/sms/message");
-                client.Timeout = -1;
 
-                var request = new RestRequest(Method.POST);
+                var request = new RestRequest();
 
                 request.AddHeader("x-api-key", configuration.Sms.ApiKey);
                 request.AddHeader("Content-Type", "application/json");
@@ -73,8 +72,9 @@
                         source = configuration.Sms.Source
                     }
                 );
+                request.Timeout = TimeSpan.FromSeconds(-1);
 
-                client.Execute(request);
+                client.Execute(request, Method.Delete);
             }
         }
     }

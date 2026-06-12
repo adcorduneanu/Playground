@@ -1,17 +1,32 @@
-## Order 
+# Order
 
-## Properties
-1. Id - text
-1. Items - a collection of items
-1. Total Price - the gross amount of the order
+## Domain
 
-## Actions
-1. Upsert
-1. Delete
+- Id (string)
+- Items (collection of items)
+- TotalPrice (gross amount of the order)
 
-## Specs
+## Supported Operations
 
-Implement the `WebApi` endpoints based on the provided information; that will include, controller, methods, naming convetions, routing, etc.
+* Upsert an Order
+* Delete an Order
 
-## Time limit
+## Task
+### Details
+Design the REST API contract for the Order resource.
+
+### Requirements
+- Endpoint URLs
+- HTTP methods
+- Request payloads
+- Response payloads
+- Expected HTTP status codes
+- Naming conventions and routing decisions
+- Any assumptions you make
+
+> Do not write any C# code, controller implementations, business logic, or database access code.
+
+
+## Time Limit
+
 3-4 minutes

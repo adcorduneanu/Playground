@@ -1,21 +1,24 @@
 ﻿namespace Inheritance.ABC
 {
-    using Newtonsoft.Json;
     using System;
+    using System.Text.Json;
 
-    class Program
+    partial class Program
     {
         static void Main()
         {
+#if INTERVIEW
             DoSomethingWith(new A());
             DoSomethingWith(new B());     
-            DoSomethingWith(new C());     
+            DoSomethingWith(new C());
             DoSomethingWith(new D());
+#endif
         }
 
+#if INTERVIEW
         static void DoSomethingWith(B myType)
         {
-            Console.WriteLine(JsonConvert.SerializeObject(myType));
+            Console.WriteLine(JsonSerializer.Serialize(myType));
         }
 
         internal class A
@@ -32,10 +35,11 @@
         {
             public Guid Guid { get; } = Guid.NewGuid();
         }
-
+       
         internal class D : C
         {
             public string Name => nameof(D);
         }
+#endif
     }
 }
